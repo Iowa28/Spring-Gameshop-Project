@@ -1,0 +1,47 @@
+java:
+  runtime:
+    version: 1.8.0_291
+
+server:
+  port: ${PORT:8080}
+
+#db:
+#  driver: org.postgresql.Driver
+#  url: jdbc:postgresql://127.0.0.1:5432/gamestore
+#  user: postgres
+#  password: futureiscoming
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/gamestore}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:futureiscoming}
+
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      jdbc-url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/gamestore}
+      username: ${SPRING_DATASOURCE_USERNAME:postgres}
+      password: ${SPRING_DATASOURCE_PASSWORD:futureiscoming}
+    data-username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    data-password: ${SPRING_DATASOURCE_PASSWORD:futureiscoming}
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+
+  thymeleaf:
+    enabled: true
+    encoding: UTF-8
+
+#Steam Api
+steam:
+  api:
+    key: AA013441CB64BA677E2A989D1BD53B55
+    url: http://api.steampowered.com

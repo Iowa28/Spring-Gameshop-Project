@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="copy (fname, sname)">
+        <p th:text="${fname} + ' - ' + ${sname}"></p>
+    </div>
+</body>

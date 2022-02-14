@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <title>404</title>
+</head>
+<body>
+
+    <div class="error-block">
+        <h1 class="error-header">404</h1>
+        <p class="error-info">Страница не найдена</p>
+        <p th:text="${exception?.entity}" class="error-info" style="font-size: 28px;"></p>
+        <a th:href="@{/home}" class="nav-link error-link">Вернуться на главную</a>
+    </div>
+
+    <footer th:insert="fragments/footer :: footer"></footer>
+
+</body>
+</html>

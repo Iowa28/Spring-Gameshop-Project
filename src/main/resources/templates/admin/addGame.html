@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить игру</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <style>
+        p {
+            color: #ec1313;
+        }
+    </style>
+</head>
+<body>
+    <div class="sign-in-form">
+
+        <div class="sign-in-header">
+            <div class="container">
+                <h2>Добавить игру</h2>
+            </div>
+        </div>
+
+
+        <form th:action="@{/admin/addGame}" th:object="${gameForm}" method="post">
+            <div class="form-group">
+                <label>Название</label>
+                <input type="text" class="form-control" name="name" th:field="*{name}"/>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Описание</label>
+                <input type="text" class="form-control" name="annotation" th:field="*{annotation}"/>
+                <p th:if="${#fields.hasErrors('annotation')}" th:errors="*{annotation}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>URL Обложки</label>
+                <input type="text" class="form-control" name="cover" th:field="*{cover}"/>
+                <p th:if="${#fields.hasErrors('cover')}" th:errors="*{cover}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Цена</label>
+                <input type="text" class="form-control" name="cost" th:field="*{cost}"/>
+                <p th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Жанр</label>
+                <select class="custom-select mr-sm-2" th:field="*{genre}">
+                    <p th:each="genre : ${genres}">
+                        <option th:value="${genre.getId()}" th:text="${genre.getName()}"></option>
+                    </p>
+                </select>
+                <p th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Разработчик</label>
+                <input type="text" class="form-control" name="cost" th:field="*{developer}"/>
+                <p th:if="${#fields.hasErrors('developer')}" th:errors="*{developer}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Издатель</label>
+                <input type="text" class="form-control" name="cost" th:field="*{publisher}"/>
+                <p th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Дата выхода</label>
+                <input type="text" class="form-control" name="cost" th:field="*{releaseDate}"/>
+                <p th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Steam ID</label>
+                <input type="text" class="form-control" name="cost" th:field="*{steamId}"/>
+                <p th:if="${#fields.hasErrors('steamId')}" th:errors="*{steamId}"></p>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>

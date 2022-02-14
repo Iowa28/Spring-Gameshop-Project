@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <title>403</title>
+</head>
+<body>
+    <div class="error-block">
+        <h1 class="error-header">403</h1>
+        <p class="error-info">У вас отсутсвуют права для перехода по данной ссылке</p>
+        <a th:href="@{/home}" class="nav-link error-link">Вернуться на главную</a>
+    </div>
+
+    <footer th:insert="fragments/footer :: footer"></footer>
+
+</body>
+</html>

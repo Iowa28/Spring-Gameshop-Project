@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/button_highlight.js}"></script>
+    <title>Admin</title>
+</head>
+<body>
+<header th:insert="fragments/header :: header"></header>
+<input id="header_btn" type="hidden" value="admin">
+
+<div class="admin-main">
+    <div class="container">
+
+    <h2 class="profile-header">Страница Администратора</h2>
+
+    <div class="admin-main-row">
+        <a th:href="@{/admin/addGame}" class="admin-main-link">Добавить игру</a>
+    </div>
+
+        <div class="admin-main-row">
+            <a th:href="@{/admin/addGenre}" class="admin-main-link">Добавить жанр</a>
+        </div>
+
+    <div class="admin-main-row">
+        <a th:href="@{/swagger-ui.html}" class="admin-main-link">Swagger UI</a>
+    </div>
+    <div class="admin-main-row">
+        <a th:href="@{/admin/gamesModify}" class="admin-main-link">Управление играми</a>
+    </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

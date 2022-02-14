@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+  <div class="card item" th:fragment="item (game)">
+
+    <img th:src="${game.getCover()}" class="card-img-top" height="350" width="200" alt="">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center">
+        <a th:href="@{/home/game/{id}(id=${game.getId()})}" th:text="${game.getName()}" class="item-link"></a>
+      </h5>
+      <p class="card-text item-cost" th:text="${game.getCost()}"></p>
+    </div>
+
+  </div>
+
+</body>
+</html>

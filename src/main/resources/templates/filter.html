@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/jquery-1.9.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <title>Поиск</title>
+</head>
+<body>
+
+<header th:insert="fragments/header :: header"></header>
+
+<div class="catalog">
+
+    <div th:insert="fragments/gameSearch :: search" class="container"></div>
+    <div class="container">
+        <div class="catalog-search">
+            <div th:insert="fragments/gameSearch :: down-menu (${categories})" style="padding-right: 20px;"></div>
+            <div th:insert="fragments/gameSearch :: cost-menu"></div>
+        </div>
+    </div>
+
+    <div class="catalog-header">
+        <div class="container">
+            <h1 th:text="${header}"></h1>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-3" th:each="game :${games}" style="margin-bottom: 30px">
+                    <div th:insert="fragments/gameCard :: item(${game})"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer th:insert="fragments/footer :: footer"></footer>
+
+</div>
+
+</body>
+</html>

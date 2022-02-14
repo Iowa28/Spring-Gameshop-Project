@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="game-search" th:fragment="search">
+    <form th:action="@{/home/filtered/}" method="post">
+        <div class="form-group">
+            <input th:name="name" class="form-control" type="search" placeholder="Поиск игры">
+        </div>
+<!--        <input class="btn btn-success" type="submit" value="Поиск">-->
+    </form>
+</div>
+
+<div class="btn-group" th:fragment="down-menu (categories)">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" style="font-size: 20px">
+        Жанр
+        <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+        <th:block th:each="category : ${categories}">
+            <a th:href="@{/home/genre/{name}(name=${category.getName()})}" th:text="${category.getName()}" class="dropdown-item"></a>
+        </th:block>
+    </div>
+</div>
+
+<div class="btn-group" th:fragment="cost-menu">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" style="font-size: 20px">
+        Цена
+        <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+        <a th:href="@{/filterCost/{cost}(cost=2000)}" class="dropdown-item">Меньше 2000</a>
+        <a th:href="@{/filterCost/{cost}(cost=1500)}" class="dropdown-item">Меньше 1500</a>
+        <a th:href="@{/filterCost/{cost}(cost=1000)}" class="dropdown-item">Меньше 1000</a>
+        <a th:href="@{/filterCost/{cost}(cost=750)}" class="dropdown-item">Меньше 750</a>
+    </div>
+</div>
+</body>
+</html>

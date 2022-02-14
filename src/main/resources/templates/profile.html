@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/button_highlight.js}"></script>
+    <title>Profile</title>
+</head>
+<body>
+<header th:insert="fragments/header :: header"></header>
+<input id="header_btn" type="hidden" value="profile">
+
+<div class="profile">
+    <h1 class="profile-header">Ваш профиль</h1>
+
+    <div class="profile-info">
+
+        <table class="table">
+            <tbody>
+            <tr><td class="active">Имя пользователя</td><td th:text="${user.getUsername()}"></td></tr>
+            <tr><td class="active">Электронный адрес</td><td th:text="${user.getEmail()}"></td></tr>
+            <tr><td class="active">Игр куплено</td><td th:text="${user.getPurchasedGames().size()}"></td></tr>
+            <tr><td class="active">Баланс</td><td th:text="${user.getCurrentMoney()} + ' рублей'"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="profile-games">
+
+        <h2 class="profile-header">Ваши игры</h2>
+
+        <div class="container" style="padding-top: 30px">
+            <div class="row">
+            <div th:each="game : ${user.getPurchasedGames()}" class="col-md-4 col-xs-4" style="margin-bottom: 40px">
+
+                <div class="card profile-game-item">
+                    <div class="card-body">
+                        <h4 class="profile-game-title">
+                            <a th:href="@{/home/game/{id}(id=${game.getId()})}" th:text="${game.getName()}" class="item-link"></a>
+                        </h4>
+                    </div>
+                    <img th:src="${game.getCover()}" class="profile-game-img" height="350" width="200" alt="">
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:insert="fragments/footer :: footer"></footer>
+</body>
+</html>

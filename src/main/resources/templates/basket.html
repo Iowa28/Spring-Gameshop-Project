@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/jquery-1.9.1.min.js}"></script>
+    <script th:src="@{/js/button_highlight.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+
+    <title>Корзина</title>
+</head>
+<body>
+
+    <header th:insert="fragments/header :: header"></header>
+    <input id="header_btn" type="hidden" value="basket">
+
+    <div class="basket">
+        <h1 class="basket-header">Моя корзина</h1>
+
+        <div th:unless="${basketIsEmpty}" style="display: flex">
+            <div class="basket-items">
+                <div class="basket-item" th:each="game : ${games}">
+                    <div class="basket-item-cover">
+                        <img th:src="${game.getCover()}" alt="" class="basket-item-img">
+                    </div>
+
+                    <div class="basket-item-info">
+                        <p class="basket-item-name" th:text="${game.getName()}"></p>
+                        <p class="basket-item-cost" th:text="${game.getCost()}"></p>
+                        <button class="btn btn-danger basket-item-btn">
+                            <a th:href="@{/basket/remove/{id}(id=${game.getId()})}" class="game-buy-link">Убрать</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="basket-payment">
+                <h2 class="basket-payment-header">Оплата заказа</h2>
+                <button class="btn btn-secondary basket-payment-btn">
+                    <a th:href="@{/basket/makePurchase}" class="game-buy-link" th:text="'Оплатить ' + ${totalCost}"></a>
+                </button>
+                <div th:unless="${purchaseSuccessful}">
+                    <p class="basket-payment-error">У вас недостаточно средств</p>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${basketIsEmpty}">
+            <p class="empty-basket">
+                Похоже что, ваша корзина пуста. Самое время это исправить!
+            </p>
+        </div>
+
+    </div>
+
+
+
+    <footer th:insert="fragments/footer :: footer"></footer>
+</body>
+</html>

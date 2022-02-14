@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${game.getName()}">Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/button_highlight.js}"></script>
+    <script type="text/javascript" th:src="@{/js/game_page.js}"></script>
+</head>
+<body>
+
+<header th:insert="fragments/header :: header"></header>
+
+<div class="game-blog">
+
+    <div th:insert="fragments/gameSearch :: search" class="container"></div>
+
+    <div class="game-first">
+        <div class="game-intro">
+            <img th:src="${game.getCover()}" class="game-image" alt="">
+        </div>
+        <div class="game-buy">
+            <div class="game-name">
+                <h2 th:text="'КУПИТЬ ' + ${game.getName()}" style="text-align: center"></h2>
+            </div>
+
+            <h4 th:text="${game.getCost()} + ' ₽'" class="game-cost"></h4>
+            <div class="game-buy-btn">
+
+                <div th:if="${isInBasket}">
+                    <button class="btn btn-success game-page-btn">Добавлено</button>
+                </div>
+                <div th:unless="${isInBasket}">
+
+                    <div th:if="${isPurchased}">
+                        <button class="btn btn-primary game-page-btn">Куплено</button>
+                    </div>
+                    <div th:unless="${isPurchased}">
+                        <button id="btn_buy" class="btn btn-secondary game-page-btn">
+                            <a th:href="@{/basket/add/{id}(id=${game.getId()})}" class="game-buy-link">В корзину</a>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="game-second">
+        <div class="game-slider-button">
+            <button id="btn-info" type="button" class="btn btn-outline-secondary active" style="font-size: 20px">Описание</button>
+            <button id="btn-chr" type="button" class="btn btn-outline-secondary" style="font-size: 20px">Характеристики</button>
+            <button id="btn-news" type="button" class="btn btn-outline-secondary" style="font-size: 20px">Новости</button>
+        </div>
+
+        <div class="container">
+            <div class="slider">
+                <div class="game-info slider-active">
+                    <p class="game-text" th:text="${game.getAnnotation()}"></p>
+                </div>
+
+                <div class="game-characteristic">
+
+                    <div class="game-chr-item">
+                        <p class="game-chr-title">Жанр</p>
+                        <p th:text="${game.getGameGenre().getName()}"></p>
+                    </div>
+
+                    <div class="game-chr-item">
+                        <p class="game-chr-title">Разравотчик</p>
+                        <p th:text="${game.getGameInfo().getDeveloper()}"></p>
+                    </div>
+
+                    <div class="game-chr-item">
+                        <p class="game-chr-title">Издатель</p>
+                        <p th:text="${game.getGameInfo().getPublisher()}"></p>
+                    </div>
+
+                    <div class="game-chr-item">
+                        <p class="game-chr-title">Дата выхода</p>
+                        <p th:text="${game.getGameInfo().getReleaseDate()}"></p>
+                    </div>
+
+                </div>
+
+                <div class="game-news">
+                    <div th:each="newsItem : ${newsItems}" style="padding-bottom: 10px;">
+                        <a th:href="${newsItem.getLink()}" th:text="${newsItem.getTitle()}" class="news-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:insert="fragments/footer :: footer"></footer>
+</body>
+</html>
