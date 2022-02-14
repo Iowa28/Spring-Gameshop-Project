@@ -21,6 +21,7 @@
 *.git
 *.github
 *.idea
+*.xml
 
 *~
 

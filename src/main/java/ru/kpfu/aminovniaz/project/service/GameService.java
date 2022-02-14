@@ -219,23 +219,7 @@ public class GameService {
 
 
     private String prepareAjaxResponse(List<Game> games) {
-        String response = "";
-
-        for (Game game : games) {
-            response += "<div class=\"col-md-3 col-xs-3\" style=\"margin-bottom: 30px\">";
-            response += "<div class=\"card item\">";
-            response += "<img src=\"" + game.getCover() + "\" class=\"card-img-top\" height=\"350\" width=\"200\" alt=\"\">";
-            response += "<div class=\"card-body\">";
-            response += "<h5 class=\"card-title\" style=\"text-align: center\">";
-            response += "<a href=\"/home/game/" + game.getId() + "\" class=\"item-link\">" + game.getName() +"</a>";
-            response += "</h5>";
-            response += "<p class=\"card-text item-cost\">" + game.getCost() + "</p>";
-            response += "</div>";
-            response += "</div>";
-            response += "</div>";
-        }
-
-        return response;
+        return "";
     }
 
     @ExceptionLog

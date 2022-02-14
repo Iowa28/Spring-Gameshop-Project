@@ -13,19 +13,4 @@ import javax.sql.DataSource;
 @PropertySource("classpath:application.yaml")
 public class RootConfig {
 
-//    @Resource
-//    private Environment env;
-//
-//    @Bean
-//    public DataSource dataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//
-//        dataSource.setDriverClassName(env.getRequiredProperty("db.driver"));
-//        dataSource.setUrl(env.getRequiredProperty("db.url"));
-//        dataSource.setUsername(env.getRequiredProperty("db.user"));
-//        dataSource.setPassword(env.getRequiredProperty("db.password"));
-//
-//        return dataSource;
-//    }
-
 }
