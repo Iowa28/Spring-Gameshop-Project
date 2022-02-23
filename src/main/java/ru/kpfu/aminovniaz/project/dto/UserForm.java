@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

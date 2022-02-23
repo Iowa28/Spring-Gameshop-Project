@@ -10,8 +10,6 @@ import java.util.Objects;
 @Entity
 @Data
 @Table(name = "genre")
-@Getter
-@Setter
 public class GameGenre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

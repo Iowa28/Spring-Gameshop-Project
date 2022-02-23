@@ -9,8 +9,6 @@ import javax.persistence.Lob;
 import javax.validation.constraints.*;
 
 @Data
-@Getter
-@Setter
 public class GameForm {
     @NotNull
     @NotEmpty(message = "Это поле не может быть пустым.")

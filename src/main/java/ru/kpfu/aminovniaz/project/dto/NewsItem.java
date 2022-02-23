@@ -3,8 +3,6 @@ package ru.kpfu.aminovniaz.project.dto;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
