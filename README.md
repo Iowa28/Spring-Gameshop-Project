@@ -1,8 +1,18 @@
-# Game shop on Spring Boot
+# Интернет-магазин игр на Spring Boot
 
-This application has the following features:
-- Working with rest api using swagger;
-- Thymeleaf template engine;
-- Receiving game news (Steam API);
-- Shop Functionality of an online store with a purchase and a basket of item;
+## Особенности:
+- Реализована корзина товаров для покупки игр
+- У каждой игры есть страница с подробным описнием (краткое содержание, жанр, разработчик, издатель, дата выхода, новости)
+- Для вывода новостей игры был использован Steam Web API
+- Реализован поиск игр с фильтрацией по цене и по жанру
+- Есть отдельная страница админстратора, в котором реализован CRUD для игр
+- Также есть возможность взаимодействовать с REST API через Swagger с операциями CRUD над пользователем
 
+## Технологии
+
+- Spring Boot, Spring Security, Spring Data, Spring AOP
+- PostgreSQL
+- Thymeleaf
+- Log4j
+- Rest API, Swagger
+- HTML, CSS, jQuery, Bootstrap
