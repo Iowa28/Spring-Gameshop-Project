@@ -20,12 +20,12 @@
 ## Страницы
 
 1.	Главная страница
-![Error](https://github.com/Iowa28/Spring-Gameshop-Project/screenshots/main.jpg)
+![Error](https://github.com/Iowa28/Spring-Gameshop-Project/blob/main/screenshots/main.jpg)
 2.	Страница игры
-![Error](https://github.com/Iowa28/Spring-Gameshop-Project/screenshots/game.jpg)
+![Error](https://github.com/Iowa28/Spring-Gameshop-Project/blob/main/screenshots/game.jpg)
 3.	Корзина
-![Error](https://github.com/Iowa28/Spring-Gameshop-Project/screenshots/basket.jpg)
+![Error](https://github.com/Iowa28/Spring-Gameshop-Project/blob/main/screenshots/basket.jpg)
 4.	Профиль
-![Error](https://github.com/Iowa28/Spring-Gameshop-Project/screenshots/profile.jpg)
+![Error](https://github.com/Iowa28/Spring-Gameshop-Project/blob/main/screenshots/profile.jpg)
 5.	Страница администратора
-![Error](https://github.com/Iowa28/Spring-Gameshop-Project/screenshots/admin.jpg)
+![Error](https://github.com/Iowa28/Spring-Gameshop-Project/blob/main/screenshots/admin.jpg)
