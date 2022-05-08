@@ -12,6 +12,7 @@
 
 - Spring Boot, Spring Security, Spring Data, Spring AOP
 - PostgreSQL
+- Docker
 - Thymeleaf
 - Log4j
 - Rest API, Swagger
